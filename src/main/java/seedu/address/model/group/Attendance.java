@@ -5,8 +5,8 @@ package seedu.address.model.group;
  */
 public class Attendance {
 
-    private final boolean isPresent;
-    private final boolean isFlagged;
+    private boolean isPresent;
+    private boolean isFlagged;
 
     /**
      * Creates a default Attendance object that is not flagged and not present
@@ -23,6 +23,11 @@ public class Attendance {
 
     public boolean getAttendance() {
         return isPresent;
+    }
+
+    public Attendance setAttendance(boolean isPresent) {
+        this.isPresent = isPresent;
+        return this;
     }
 
     public boolean getFlagged() {

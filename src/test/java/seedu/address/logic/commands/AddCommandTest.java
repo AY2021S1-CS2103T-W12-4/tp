@@ -24,6 +24,7 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.group.Group;
 import seedu.address.model.group.Lesson;
 import seedu.address.model.group.Student;
+import seedu.address.model.group.StudentInfo;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
@@ -199,6 +200,16 @@ public class AddCommandTest {
         }
 
         @Override
+        public void updateFilteredLessonList(Predicate<Lesson> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateStudentInfoList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ObservableList<Group> getFilteredGroupList() {
             throw new AssertionError("This method should not be called.");
         }
@@ -210,6 +221,16 @@ public class AddCommandTest {
 
         @Override
         public ObservableList<Lesson> getLessonList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Lesson> getFilteredLessonList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<StudentInfo> getStudentInfoList() {
             throw new AssertionError("This method should not be called.");
         }
     }

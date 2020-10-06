@@ -1,5 +1,16 @@
 package seedu.address.model.group;
 
+import org.junit.jupiter.api.Test;
+
 public class AttendanceTest {
-    //TODO: Test cases
+
+    @Test
+    void getAttendance() {
+    }
+    @Test
+    void setAttendance() {
+    }
+    @Test
+    void getFlagged() {
+    }
 }

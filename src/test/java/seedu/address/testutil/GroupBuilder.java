@@ -12,6 +12,7 @@ import seedu.address.model.group.Lesson;
 import seedu.address.model.group.Student;
 import seedu.address.model.group.StudentInfo;
 import seedu.address.model.group.UniqueLessonList;
+import seedu.address.model.group.UniqueStudentInfoList;
 import seedu.address.model.group.UniqueStudentList;
 
 /**
@@ -91,7 +92,7 @@ public class GroupBuilder {
      * building.
      */
     public GroupBuilder withClasses(String... classes) {
-        Set<StudentInfo> studentsInfo = new HashSet<>();
+        UniqueStudentInfoList studentsInfo = new UniqueStudentInfoList();
         for (Student student : students) {
             studentsInfo.add(new StudentInfo(student));
         }

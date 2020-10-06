@@ -9,3 +9,4 @@ Serenity is a one-stop software for CS2101 tutors to manage your CS2101 classes.
 Check out our [User Guide](docs/UserGuide.md) to get started!
 
 This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+

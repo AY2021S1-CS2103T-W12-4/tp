@@ -12,9 +12,9 @@ class JsonAdaptedGroupTest {
             .stream()
         .map(JsonAdaptedStudent::new)
         .collect(Collectors.toList());
-    private static final List<JsonAdaptedClass> VALID_CLASSES = GROUP_A.getLessons().asUnmodifiableObservableList()
+    private static final List<JsonAdaptedLesson> VALID_CLASSES = GROUP_A.getLessons().asUnmodifiableObservableList()
             .stream()
-        .map(JsonAdaptedClass::new)
+        .map(JsonAdaptedLesson::new)
         .collect(Collectors.toList());
 
 

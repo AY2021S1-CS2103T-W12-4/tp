@@ -22,7 +22,7 @@ public class LessonTest {
     @Test
     public void constructor_invalidName_throwsIllegalArgumentException() {
         String invalidName = "";
-        Set<StudentInfo> studentsInfo = new HashSet<>();
+        UniqueStudentInfoList studentsInfo = new UniqueStudentInfoList();
         StudentInfo studentInfo = new StudentInfo(JOHN, new Participation(), new Attendance());
         studentsInfo.add(studentInfo);
         assertThrows(IllegalArgumentException.class, () -> new Lesson(invalidName, studentsInfo));
@@ -32,18 +32,18 @@ public class LessonTest {
     public void constructor_emptyClass_throwsIllegalArgumentException() {
         String name = "1-1";
         Set<Student> students = new HashSet<>();
-        assertThrows(IllegalArgumentException.class, () -> new Lesson(name, new HashSet<>()));
+        assertThrows(IllegalArgumentException.class, () -> new Lesson(name, new UniqueStudentInfoList()));
     }
 
     @Test
     public void equals() {
-        Set<StudentInfo> studentsInfo = new HashSet<>();
+        UniqueStudentInfoList studentsInfo = new UniqueStudentInfoList();
         StudentInfo studentInfo = new StudentInfo(JOHN);
         studentsInfo.add(studentInfo);
         Lesson oneOne = new Lesson("1-1", studentsInfo);
         Lesson oneOneClone = new Lesson("1-1", studentsInfo);
         Lesson classTwoOne = new Lesson("2-1", studentsInfo); //same students, different name
-        Set<StudentInfo> newStudentsInfo = new HashSet<>();
+        UniqueStudentInfoList newStudentsInfo = new UniqueStudentInfoList();
         newStudentsInfo.add(new StudentInfo(JOHN));
         newStudentsInfo.add(new StudentInfo(JAMES));
         Lesson oneOneWithTwoStudents = new Lesson("1-1", newStudentsInfo);

@@ -3,8 +3,7 @@ package seedu.address.model.group;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.Set;
+import javafx.collections.ObservableList;
 
 /**
  * Represents a tutorial class in serenity. Guarantees: details are present and not null, field values are validated,
@@ -14,15 +13,16 @@ public class Lesson {
 
     public static final String NAME_CONSTRAINT = "Class name cannot be empty";
     public static final String STUDENTS_INFO_CONSTRAINT = "Students information cannot be empty";
+
     private final String name;
-    private final Set<StudentInfo> studentsInfo;
+    private final UniqueStudentInfoList studentsInfo;
 
     /**
      * Constructs a {@code Class}.
      *
      * @param name A valid name.
      */
-    public Lesson(String name, Set<StudentInfo> studentsInfo) {
+    public Lesson(String name, UniqueStudentInfoList studentsInfo) {
         requireAllNonNull(name, studentsInfo);
         checkArgument(isValidName(name), NAME_CONSTRAINT);
         checkArgument(isValidStudentInfo(studentsInfo), STUDENTS_INFO_CONSTRAINT);
@@ -34,17 +34,20 @@ public class Lesson {
         return name.length() > 0;
     }
 
-    public Set<StudentInfo> getStudentsInfo() {
-        return Collections.unmodifiableSet(studentsInfo);
+    public String getName() {
+        return name;
     }
 
-    boolean isValidStudentInfo(Set<StudentInfo> studentsInfo) {
+    boolean isValidStudentInfo(UniqueStudentInfoList studentsInfo) {
         return studentsInfo.size() > 0;
     }
 
+    public UniqueStudentInfoList getStudentsInfo() {
+        return studentsInfo;
+    }
 
-    public String getName() {
-        return name;
+    public ObservableList<StudentInfo> getStudentsInfoAsUnmodifiableObservableList() {
+        return studentsInfo.asUnmodifiableObservableList();
     }
 
     @Override
@@ -58,8 +61,8 @@ public class Lesson {
         }
 
         Lesson otherClass = (Lesson) obj;
-        return otherClass.getName().equals(getName()) && otherClass.getStudentsInfo()
-            .containsAll(getStudentsInfo());
+        return otherClass.getName().equals(getName())
+                && otherClass.getStudentsInfo().equals(getStudentsInfo());
     }
 }
 

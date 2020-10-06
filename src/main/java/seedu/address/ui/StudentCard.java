@@ -25,7 +25,6 @@ public class StudentCard extends UiPart<Region> {
     @FXML
     private Label studentNumber;
 
-
     /**
      * Creates a {@code StudentCard} with the given {@code Student} and index to display.
      */
@@ -54,4 +53,5 @@ public class StudentCard extends UiPart<Region> {
         return id.getText().equals(card.id.getText())
                 && student.equals(card.student);
     }
+
 }

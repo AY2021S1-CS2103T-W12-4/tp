@@ -5,12 +5,14 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.group.Lesson;
 import seedu.address.model.group.Student;
 import seedu.address.model.group.StudentInfo;
+import seedu.address.model.group.UniqueStudentInfoList;
 
 /**
  * Reads CSV file that the tutor downloads from LUMINUS and writes JSON data to a new CSV file.
@@ -75,7 +77,7 @@ public class CsvUtil {
     }
 
     /**
-     * Reads a set of StudentInfo and creates the Lessons
+     * Reads a set of the Lessons
      * @param studentsInfo Set of StudentInfo
      * @return Set of Lessons
      */
@@ -96,7 +98,9 @@ public class CsvUtil {
             int len = row.length;
             for (int i = 4; i < len; i++) {
                 String lessonName = computeClassName(i - 3); //start from 1
-                lessons.add(new Lesson(lessonName, studentsInfo));
+                UniqueStudentInfoList newStudentsInfo = new UniqueStudentInfoList();
+                newStudentsInfo.setStudentInfo(new ArrayList<>(studentsInfo));
+                lessons.add(new Lesson(lessonName, newStudentsInfo));
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -135,7 +139,7 @@ public class CsvUtil {
         return studentsInfo;
     }
 
-    private Lesson createClass(String name, Set<StudentInfo> studentsInfo) {
+    private Lesson createClass(String name, UniqueStudentInfoList studentsInfo) {
         return new Lesson(name, studentsInfo);
     }
 

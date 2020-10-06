@@ -8,6 +8,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.group.Group;
 import seedu.address.model.group.Lesson;
 import seedu.address.model.group.Student;
+import seedu.address.model.group.StudentInfo;
 import seedu.address.model.person.Person;
 
 /**
@@ -95,6 +96,8 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
 
+    // ========== Serenity ==========
+
     /**
      * Returns the user prefs' serenity file path.
      */
@@ -137,18 +140,46 @@ public interface Model {
      */
     void updateStudentList();
 
-
     /**
      * Updates the lesson list to filter when changing to another group of interest.
      */
-    public void updateLessonList();
+    void updateLessonList();
 
     /**
-     * Returns an unmodifiable view of the filtered group list
+     * Updates the filter of the filtered lesson list to filter by the given {@code predicate}.
+     *
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredLessonList(Predicate<Lesson> predicate);
+
+    /**
+     * Updates the student info list to filter when changing to another lesson of interest.
+     */
+    void updateStudentInfoList();
+
+    /**
+     * Returns an unmodifiable view of the filtered group list.
      */
     ObservableList<Group> getFilteredGroupList();
 
+    /**
+     * Returns an unmodifiable view of the student list.
+     */
     ObservableList<Student> getStudentList();
 
+    /**
+     * Returns an unmodifiable view of the lesson list.
+     */
     ObservableList<Lesson> getLessonList();
+
+    /**
+     * Returns an unmodifiable view of the filtered lesson list.
+     */
+    ObservableList<Lesson> getFilteredLessonList();
+
+    /**
+     * Returns an unmodifiable view of the student info list
+     */
+    ObservableList<StudentInfo> getStudentInfoList();
+
 }

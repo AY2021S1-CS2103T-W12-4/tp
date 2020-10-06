@@ -10,8 +10,10 @@ public class Messages {
     public static final String MESSAGE_INVALID_PERSON_DISPLAYED_INDEX = "The person index provided is invalid";
     public static final String MESSAGE_PERSONS_LISTED_OVERVIEW = "%1$d persons listed!";
 
-    //serenity messages
-
+    // Serenity messages
     public static final String MESSAGE_GROUP_LISTED_OVERVIEW = "You are in tutorial group %1$s.";
     public static final String MESSAGE_GROUP_EMPTY = "no such group!";
+    public static final String MESSAGE_LESSON_LISTED_OVERVIEW = "You are in tutorial group %1$s, lesson %2$s.";
+    public static final String MESSAGE_LESSON_EMPTY = "no such lesson!";
+
 }

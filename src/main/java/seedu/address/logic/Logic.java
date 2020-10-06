@@ -12,6 +12,7 @@ import seedu.address.model.ReadOnlySerenity;
 import seedu.address.model.group.Group;
 import seedu.address.model.group.Lesson;
 import seedu.address.model.group.Student;
+import seedu.address.model.group.StudentInfo;
 import seedu.address.model.person.Person;
 
 /**
@@ -69,14 +70,19 @@ public interface Logic {
     ObservableList<Group> getFilteredGroupList();
 
     /**
-     * Returns an unmodifiable view of the filtered list of Students from a group.
+     * Returns an unmodifiable view of the filtered list of students from a group.
      */
     ObservableList<Student> getStudentList();
 
     /**
-     * Returns an unmodifiable view of the list of lesson from a group.
+     * Returns an unmodifiable view of the filtered list of lesson from a group.
      */
     ObservableList<Lesson> getLessonList();
+
+    /**
+     * Returns an unmodifiable view of the filtered list of students info from a group-lesson.
+     */
+    ObservableList<StudentInfo> getFilteredStudentInfoList();
 
     /**
      * Returns the user prefs' serenity file path.
